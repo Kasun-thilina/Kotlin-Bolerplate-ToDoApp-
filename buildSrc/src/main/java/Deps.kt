@@ -173,7 +173,7 @@ object Apiliveserver {
 }
 
 object Apisandboxserver {
-    const val url = "\"https://newsapi.org/v2/\""
+    const val url = "\"https://jsonplaceholder.typicode.com\""
     const val apiKey = "\"55d61398b4ba44d7949d20923e0f0bc9\""
 }
 
