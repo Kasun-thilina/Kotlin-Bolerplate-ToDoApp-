@@ -5,7 +5,10 @@
     tools:ignore="NewApi">
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="20dp" />
+            <corners
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:radius="0dp" />
             <solid android:color="@color/colorPrimary" />
         </shape>
     </item>

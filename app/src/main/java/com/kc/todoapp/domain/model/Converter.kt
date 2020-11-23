@@ -9,6 +9,12 @@ fun TodoListResponse.mapToDomain(): DTodoResponse = DTodoResponse(
     }
 )
 
+fun List<Todo>.mapToDomain(): DTodoResponse = DTodoResponse(
+    todoList = map { todo ->
+        todo.mapToDomain()
+    }
+)
+
 fun Todo.mapToDomain(): DTodo = DTodo(
     userId = userId,
     id = id,

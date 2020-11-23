@@ -13,8 +13,8 @@ import okhttp3.RequestBody.Companion.toRequestBody
 
 class TodoRepositoryImpl(val todoApi: TodoApi) : TodoRepository {
     override fun getTodos(): Observable<DTodoResponse> {
-        return todoApi.getTodoList().map { todoList ->
-            todoList.mapToDomain()
+        return todoApi.getTodoList().map {
+            it.mapToDomain()
         }
     }
 

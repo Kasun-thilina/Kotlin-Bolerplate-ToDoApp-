@@ -5,69 +5,83 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/bg_white_rounded_corner"
+    android:background="@color/colorTransparent"
     android:elevation="8dp"
     android:minWidth="300dp"
-    android:orientation="vertical"
-    android:paddingTop="24dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/dialogInfoTitleTextView"
+    <androidx.cardview.widget.CardView
+        style="@style/ProgressbarStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:textAlignment="center"
-        android:textSize="22sp"
-        style="@style/TitleTextBlackStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/dialogInfoMessageTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/dialogInfoTitleTextView"
-        app:layout_constraintStart_toStartOf="@+id/dialogInfoTitleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/dialogInfoTitleTextView" />
-
-    <Button
-        android:id="@+id/dialogInfoPositiveButton"
-        style="@style/PrimaryButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp"
-        android:maxWidth="120dp"
+        android:layout_gravity="center"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/dialogInfoNegativeButton"
-        app:layout_constraintTop_toBottomOf="@+id/dialogInfoMessageTextView" />
-
-    <Button
-        android:id="@+id/dialogInfoNegativeButton"
-        style="@style/PrimaryButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:maxWidth="120dp"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/dialogInfoPositiveButton"
-        app:layout_constraintEnd_toStartOf="@+id/dialogInfoPositiveButton"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dialogInfoPositiveButton" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/dialogInfoTitleTextView"
+                style="@style/TitleTextBlackStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textAlignment="center"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dialogInfoMessageTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/dialogInfoTitleTextView"
+                app:layout_constraintStart_toStartOf="@+id/dialogInfoTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/dialogInfoTitleTextView" />
+
+            <Button
+                android:id="@+id/dialogInfoNegativeButton"
+                style="@style/PrimaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxWidth="120dp"
+                app:layout_constraintBottom_toBottomOf="@+id/dialogInfoPositiveButton"
+                app:layout_constraintEnd_toStartOf="@+id/dialogInfoPositiveButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/dialogInfoPositiveButton" />
+
+            <Button
+                android:id="@+id/dialogInfoPositiveButton"
+                style="@style/PrimaryButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:maxWidth="120dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dialogInfoNegativeButton"
+                app:layout_constraintTop_toBottomOf="@+id/dialogInfoMessageTextView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

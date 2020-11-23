@@ -9,7 +9,7 @@ import retrofit2.http.*
 interface TodoApi {
     @GET("todos")
     fun getTodoList(
-    ): Observable<TodoListResponse>
+    ): Observable<List<Todo>>
 
     @PUT("todos/{id}")
     fun updateTodo(

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">To Do App</string>
+
+    <string name="text_task_count">%s Tasks</string>
+
+    <string name="error_default">Oops! Something Went Wrong. Please Try Again</string>
+
 </resources>
