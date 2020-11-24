@@ -8,5 +8,5 @@ data class DTodo(
     val userId: Int?,
     val id: Int?,
     val title: String?,
-    val completed: Boolean?,
+    var completed: Boolean?,
 ):Parcelable

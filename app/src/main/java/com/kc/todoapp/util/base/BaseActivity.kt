@@ -1,14 +1,19 @@
 package com.kc.todoapp.util.base
 
 import android.app.Dialog
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.Network
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.kc.todoapp.R
+import com.kc.todoapp.util.extensions.hideKeyboard
+import com.kc.todoapp.util.extensions.showToastLong
 
 /**
  * Created By Kasun Thilina 29/02/2020
@@ -54,6 +59,37 @@ abstract class BaseActivity : AppCompatActivity() {
         progress?.let {
             if (it.isShowing) {
                 progress?.dismiss()
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+//        checkNetwork()
+    }
+
+    fun dismissKeyboard(view: View) {
+        hideKeyboard()
+    }
+
+    fun checkNetwork() {
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        connectivityManager.let {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                it.registerDefaultNetworkCallback(object : ConnectivityManager.NetworkCallback() {
+                    override fun onAvailable(network: Network) {
+                        //take action when network connection is gained
+                    }
+
+                    override fun onLost(network: Network) {
+                        showToastLong(getString(R.string.msg_offline))
+                    }
+                })
+            } else {
+                if (it.activeNetwork == null || !it.activeNetworkInfo!!.isConnected) {
+                    showToastLong(getString(R.string.msg_offline))
+                }
             }
         }
     }

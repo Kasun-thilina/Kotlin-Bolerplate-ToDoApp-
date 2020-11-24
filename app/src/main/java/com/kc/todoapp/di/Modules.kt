@@ -4,6 +4,7 @@ import com.kc.todoapp.data.repository.TodoRepositoryImpl
 import com.kc.todoapp.domain.repository.TodoRepository
 import com.kc.todoapp.domain.usecase.TodoUseCase
 import com.kc.todoapp.presentation.home.HomeViewModel
+import com.kc.todoapp.presentation.view_todo.ViewTodoViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
@@ -24,6 +25,7 @@ private val loadFeature by lazy {
 
 val viewModelModule: Module = module {
     viewModel { HomeViewModel(todoUseCase = get()) }
+    viewModel { ViewTodoViewModel(todoUseCase = get()) }
 }
 
 val useCaseModule: Module = module {

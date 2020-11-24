@@ -2,7 +2,6 @@ package com.kc.todoapp.data.repository
 
 import com.google.gson.Gson
 import com.kc.todoapp.data.source.api.TodoApi
-import com.kc.todoapp.data.source.model.Todo
 import com.kc.todoapp.domain.model.DTodo
 import com.kc.todoapp.domain.model.DTodoResponse
 import com.kc.todoapp.domain.model.mapToDomain
@@ -18,7 +17,7 @@ class TodoRepositoryImpl(val todoApi: TodoApi) : TodoRepository {
         }
     }
 
-    override fun updateTodo(todo: Todo, id: Int): Observable<DTodo> {
+    override fun updateTodo(todo: DTodo, id: Int): Observable<DTodo> {
         val json = Gson().toJson(todo)
         val body = json.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         return todoApi.updateTodo(body, id).map {
@@ -26,7 +25,7 @@ class TodoRepositoryImpl(val todoApi: TodoApi) : TodoRepository {
         }
     }
 
-    override fun addTodo(todo: Todo): Observable<DTodo> {
+    override fun addTodo(todo: DTodo): Observable<DTodo> {
         val json = Gson().toJson(todo)
         val body = json.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         return todoApi.createTodo(body).map {

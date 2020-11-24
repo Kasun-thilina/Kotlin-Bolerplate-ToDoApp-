@@ -14,6 +14,7 @@
     <color name="colorGreyTwo">#cfcfd2</color>
     <color name="colorGreyThree">#99cfcfd2</color>
     <color name="colorRipple">#DDDDDD</color>
+    <color name="colorRed">#f44336</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

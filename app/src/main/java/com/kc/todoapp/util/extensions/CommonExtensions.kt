@@ -34,8 +34,12 @@ fun Context?.showToastLong(text: String, duration: Int = Toast.LENGTH_LONG) {
 /**
  * Start Activity from context
  * */
-inline fun <reified T : Activity> Context?.startActivity() =
-    this?.startActivity(Intent(this, T::class.java))
+inline fun <reified T : Activity> Context?.startActivity(func: Intent.() -> Unit) {
+    val intent = Intent(this, T::class.java).apply {
+        func()
+    }
+    this?.startActivity(intent)
+}
 
 /**
  * Hide Keyboard

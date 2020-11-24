@@ -3,6 +3,22 @@
 
     <string name="text_task_count">%s Tasks</string>
 
+    <string name="action_undo">UNDO</string>
+    <string name="action_save">Save</string>
+
+    <string name="title_user_id">User ID</string>
+    <string name="title_todo_id">Todo ID</string>
+    <string name="title_todo_title">Todo Title</string>
+    <string name="title_todo_status">Todo Status</string>
+
     <string name="error_default">Oops! Something Went Wrong. Please Try Again</string>
+
+    <string name="msg_item_removed">Todo Item removed from the list</string>
+    <string name="msg_swipe_left">Swipe left to delete!</string>
+    <string name="msg_offline">Offline Mode!</string>
+    <string name="msg_item_deleted">Todo Item Deleted Successfully</string>
+    <string name="msg_item_updated">Todo Item Updated Successfully</string>
+    <string name="msg_item_added">New Todo Item Added Successfully</string>
+
 
 </resources>

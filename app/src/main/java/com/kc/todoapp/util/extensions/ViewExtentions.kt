@@ -16,11 +16,11 @@ fun View.visible() {
     visibility = View.VISIBLE
 }
 
-fun View.invisible() {
+fun View.makeInvisible() {
     visibility = View.INVISIBLE
 }
 
-fun View.gone() {
+fun View.makeGone() {
     visibility = View.GONE
 }
 

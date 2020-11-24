@@ -3,6 +3,10 @@ package com.kc.todoapp.util.network
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.os.Handler
+import android.os.Looper
+import com.kc.todoapp.R
+import com.kc.todoapp.util.extensions.showToastLong
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -98,17 +102,22 @@ private fun offlineInterceptor(context: Context): Interceptor = object : Interce
                 .cacheControl(cacheControl)
                 .build()
         }
-
         return chain.proceed(request)
     }
 }
 
 fun hasNetwork(context: Context): Boolean? {
-    var isConnected: Boolean? = false // Initial Value
+    var isConnected: Boolean? = false
     val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
-    if (activeNetwork != null && activeNetwork.isConnected)
+    if (activeNetwork != null && activeNetwork.isConnected) {
         isConnected = true
+    } else {
+        val handler = Handler(Looper.getMainLooper())
+        handler.post {
+            context.showToastLong(context.getString(R.string.msg_offline))
+        }
+    }
     return isConnected
 }

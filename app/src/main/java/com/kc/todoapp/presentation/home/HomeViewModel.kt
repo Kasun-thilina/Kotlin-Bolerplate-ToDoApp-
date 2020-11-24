@@ -17,6 +17,8 @@ class HomeViewModel(
 
     private val compositeDisposable = CompositeDisposable()
     val todoListLiveData = MutableLiveData<Resource<List<DTodo>>>()
+    val deleteTodoLiveData = MutableLiveData<Resource<DTodo>>()
+    val updateTodoLiveData = MutableLiveData<Resource<DTodo>>()
     var isLoading = false
 
     fun getTodoList() {
@@ -25,11 +27,39 @@ class HomeViewModel(
             todoUseCase.getTodoList()
                 .subscribeOn(Schedulers.io())
                 .subscribe({
-                    if (!it.todoList.isNullOrEmpty()){
+                    if (!it.todoList.isNullOrEmpty()) {
                         todoListLiveData.setSuccess(it.todoList, null)
                     }
                 }, {
                     todoListLiveData.setError(it.message)
+                }
+                )
+        )
+    }
+
+    fun deleteTodo(id: Int) {
+        deleteTodoLiveData.setLoading()
+        compositeDisposable.add(
+            todoUseCase.deleteTodo(id)
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    deleteTodoLiveData.setSuccess(it, null)
+                }, {
+                    deleteTodoLiveData.setError(it.message)
+                }
+                )
+        )
+    }
+
+    fun updateTodo(todo: DTodo) {
+        updateTodoLiveData.setLoading()
+        compositeDisposable.add(
+            todoUseCase.updateTodo(todo, todo.id!!)
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    updateTodoLiveData.setSuccess(it, null)
+                }, {
+                    updateTodoLiveData.setError(it.message)
                 }
                 )
         )
