@@ -6,6 +6,6 @@ A simple todo app written using
 - https://jsonplaceholder.typicode.com/ as the sample api
 
 
-##DEMO
+## DEMO
 <br>
 <img src="demo.gif" width="222" height="480"/>
