@@ -8,4 +8,4 @@ A simple todo app written using
 
 ## DEMO
 <br>
-<img src="demo.gif" width="222" height="480"/>
+<img src="demo_gif.gif" width="222" height="480"/>
